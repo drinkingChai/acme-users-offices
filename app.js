@@ -1,5 +1,6 @@
 const express = require('express');
 const nunjucks = require('nunjucks');
+const path = require('path');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const db = require('./db');
@@ -13,14 +14,16 @@ app.engine('html', nunjucks.render);
 nunjucks.configure('views', { noCache: true })
 
 app.use(morgan('dev'));
+app.use(express.static(path.resolve(`${__dirname}/public`)))
+app.use('/jquery', express.static(path.resolve(`${__dirname}/node_modules/jquery/dist/`)))
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', (req, res, next)=> {
   res.render('index');
 })
 
-app.get('/users', users);
-app.get('/offices', offices);
+app.use('/users', users);
+app.use('/offices', offices);
 
 app.use((err, req, res, next)=> {
   res.render('error');
@@ -29,6 +32,9 @@ app.use((err, req, res, next)=> {
 const port = process.env.PORT || 3000;
 
 db.sync()
+  .then(()=> {
+    return db.seed();
+  })
   .then(()=> {
     app.listen(port, ()=> {
       console.log(`listening on port ${port}`);
