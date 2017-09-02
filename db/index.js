@@ -31,9 +31,23 @@ Office.removeUser = (officeId, userId)=> {
   })
 }
 
-Office.findUserCount = ()=> {
+Office.findIncludeUser = ()=> {
   return Office.findAll({
     include: [ User ]
+  })
+}
+
+User.findIncludeOffice = ()=> {
+  let users;
+  return User.findAll({
+    include: [ Office ]
+  })
+  .then(_users=> {
+    users = _users;
+    return Office.findAll()
+  })
+  .then(offices=> {
+    return { users, offices }
   })
 }
 
