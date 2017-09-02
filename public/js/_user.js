@@ -69,7 +69,8 @@ const genUserForm = (config)=> {
   */
   let form = `
     <div>
-      <h4>New User</h4>
+      <h3>New User</h3>
+      <br/>
       <input type="text"/>
       <button class="btn">Add!</button>
     </div>
@@ -79,8 +80,10 @@ const genUserForm = (config)=> {
     $input = $form.find('input');
 
   $form.on('click', 'button', function() {
+    if (!$input.val().trim().length) return;
     $.post('/users', { name: $input.val() })
       .then(user=> {
+        if (!user) return;
         $newUser = genUser({
           user,
           offices: config.offices,
@@ -88,6 +91,7 @@ const genUserForm = (config)=> {
         })
         config.users.push(user)
         $(config.userlist).append($newUser);
+        $input.val("");
       })
   })
 

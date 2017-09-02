@@ -33,7 +33,8 @@ const genOffice = (config)=> {
 const genOfficeForm = (config)=> {
   let officeform = `
     <div>
-      <h4>New office</h4>
+      <h3>New office</h3>
+      <br/>
       <input type="text" placeholder="Stuff!"/>
     </div>
   `;

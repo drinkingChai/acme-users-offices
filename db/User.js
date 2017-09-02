@@ -3,7 +3,10 @@ const conn = require('./conn');
 const User = conn.define('user', {
   name: {
     type: conn.Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   }
 })
 
