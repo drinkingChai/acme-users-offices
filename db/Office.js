@@ -6,7 +6,7 @@ const Office = conn.define('office', {
     allowNull: false
   },
   lat: conn.Sequelize.FLOAT,
-  lang: conn.Sequelize.FLOAT
+  lng: conn.Sequelize.FLOAT
 })
 
 module.exports = Office;

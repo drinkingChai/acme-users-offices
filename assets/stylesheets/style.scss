@@ -1,0 +1,102 @@
+// test
+@import "_reset.scss";
+@import "_colors.scss";
+@import "_grid.scss";
+@import "_text.scss";
+
+@import url('https://fonts.googleapis.com/css?family=Roboto|Zilla+Slab+Highlight');
+
+/*
+  font-family: 'Zilla Slab Highlight', cursive;
+  font-family: 'Roboto', sans-serif;
+*/
+
+html { font-size: 16px; }
+body { font-size: 100%; }
+
+* { font-family: 'Roboto', sans-serif; }
+h1, h2, h3, h4 { font-family: 'Zilla Slab Highlight', cursive; }
+h1 { font-size: 3em; }
+h2 { font-size: 2em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.1em;}
+
+ul { padding: 0; }
+li {
+  list-style-type: none;
+  border-bottom: solid 1px $silver;
+  padding: 10px;
+  line-height: 1.5em;
+}
+
+header {
+  padding: 20px;
+}
+
+input {
+  width: 100%;
+}
+
+#users .inner, #offices .inner {
+  background-color: lighten($silver, 10%);
+}
+
+#user-form, #office-form {
+  padding: 10px;
+}
+
+@media (min-width: $breakpoint-md) {
+  main {
+    margin-right: 20px;
+  }
+}
+
+// header {
+//   display: block;
+//   padding: 2em 0;
+//   background-color: $primary;
+//   color: $white;
+// }
+//
+// // li template
+// .products, .cart {
+//   border: solid 1px $silver;
+//   border-radius: 3px;
+//   padding: 0;
+//
+//   & li {
+//     list-style-type: none;
+//     padding: 0.3em 1em;
+//
+//     & form {
+//       display: flex;
+//       justify-content: space-between;
+//       align-items: center;
+//     }
+//
+//     &:not(:last-child) {
+//       border-bottom: solid 1px $silver;
+//     }
+//   }
+// }
+//
+// .cart { padding-right: 0; }
+//
+// li.address form {
+//   display: flex;
+//   flex-direction: column;
+// }
+//
+// .cart input[type=text] {
+//   width: 100%;
+// }
+//
+// .orders {
+//   padding: 0;
+//
+//   & h4 { padding-bottom: 0.5em; }
+// }
+//
+// .error {
+//   background-color: $p-light;
+// }

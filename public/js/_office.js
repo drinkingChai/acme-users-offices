@@ -3,13 +3,11 @@ let count = 10; //fake
 const genOffice = (config)=> {
   let office = `
     <li data-id=${config.office.id}>
-      ${config.office.name}
-      ${config.office.lat}
-      ${config.office.lang}
-      <br/>
-      Users: <span class="user-count">${config.office.users.length}</span>
-      <br/>
-      <button>Delete</button>
+      <p>${config.office.name}</p>
+      <p>${config.office.lat}</p>
+      <p>${config.office.lng}</p>
+      <h4 class="user-count">Users: ${config.office.users.length}</h4>
+      <button class="btn">Delete</button>
     </li>
   `;
 
@@ -35,15 +33,22 @@ const genOffice = (config)=> {
 const genOfficeForm = (config)=> {
   let officeform = `
     <div>
-      New office: <input type="text"/>
-      <button>Add</button>
+      <h4>New office</h4>
+      <input type="text" placeholder="Stuff!"/>
     </div>
   `;
 
   let $officeform = $(officeform);
 
-  $officeform.on('click', 'button', function() {
-    $.post('/offices', { name: $officeform.find('input').val() })
+  // gmaps
+  let autocomplete = new google.maps.places.Autocomplete(($officeform.find('input')[0]));
+  google.maps.event.addListener(autocomplete, 'place_changed', function() {
+    let place = autocomplete.getPlace(),
+      name = place.formatted_address,
+      lat = place.geometry.location.lat(),
+      lng = place.geometry.location.lng();
+
+    $.post('/offices', { name, lat, lng })
       .then(office=> {
         office.users = [];  // lying to user?
         let $office = genOffice({
@@ -56,7 +61,12 @@ const genOfficeForm = (config)=> {
         config.officelist.append($office);
         config.updateUsers(office);
       })
-  })
+  });
+  //
+
+  // $officeform.on('click', 'button', function() {
+  //
+  // })
 
   $(config.parent).append($officeform);
 }

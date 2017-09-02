@@ -12,8 +12,7 @@ const genUser = (config)=> {
             `;
           }, '')}
       </select>
-      <br/>
-      <button>Delete</button>
+      <button class="btn">Delete</button>
     </li>
   `;
 
@@ -70,9 +69,9 @@ const genUserForm = (config)=> {
   */
   let form = `
     <div>
-      New user:
+      <h4>New User</h4>
       <input type="text"/>
-      <button>Add!</button>
+      <button class="btn">Add!</button>
     </div>
   `;
 

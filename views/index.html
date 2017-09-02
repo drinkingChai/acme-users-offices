@@ -3,23 +3,33 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
   <body>
 
-    <h1>Acme User Offices!</h1>
+    <header class="text-center">
+      <h1>. Acme User Offices .</h1>
+    </header>
 
     <!-- hmm how do we use partials? -->
-    <div id="users" style="float: left; padding-right: 20px;">
-      <div id="user-form"></div>
-      <div id="user-list"></div>
-    </div>
+    <main class="row">
+      <div id="users" class="col-6 col-md-6 col-sm-12">
+        <div class="inner">
+          <div id="user-form"></div>
+          <div id="user-list"></div>
+        </div>
+      </div>
 
-    <div id="offices-cont" style="float: left;">
-      <div id="office-form"></div>
-      <div id="office-list"></div>
-    </div>
+      <div id="offices" class="col-6 col-md-6 col-sm-12">
+        <div class="inner">
+          <div id="office-form"></div>
+          <div id="office-list"></div>
+        </div>
+      </div>
+    </main>
 
     <script src="jquery/jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_API_KEY }}&libraries=places"></script>
     <script src="js/_office.js" charset="utf-8"></script>
     <script src="js/_user.js" charset="utf-8"></script>
     <script src="js/app.js" charset="utf-8"></script>

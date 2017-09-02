@@ -7,8 +7,8 @@ const seed = ()=> {
     User.create({ name: 'Josh Clarke' }),
     User.create({ name: 'Charles Bryant' }),
     User.create({ name: `Jeri Rowloand` }),
-    Office.create({ name: 'Cool stuff corps', lat: 900, lang: -233 }),
-    Office.create({ name: 'Stuff you should eat', lat: 45, lang: 52 })
+    Office.create({ name: 'Cool stuff corps', lat: 900, lng: -233 }),
+    Office.create({ name: 'Stuff you should eat', lat: 45, lng: 52 })
   ])
   .then(([u1, u2, u3, , o1, o2])=> {
     return Promise.all([
