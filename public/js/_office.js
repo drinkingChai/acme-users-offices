@@ -17,7 +17,9 @@ const genOffice = (config)=> {
 
   $office.on('click', 'button', function() {
     // TODO: ajax stuff
-    config.offices = config.offices.filter(office=> office.id !== config.office.id);
+    let index = config.offices.indexOf(config.office)
+    // config.offices = config.offices.filter(office=> office.id !== config.office.id);
+    config.offices.splice(index, 1);
     config.deleteOption(config.office.id);
     $office.remove();
   })
@@ -46,7 +48,6 @@ const genOfficeForm = (config)=> {
     })
     config.offices.push(office);
     config.officelist.append($office);
-
     config.updateUsers(office);
   })
 
@@ -54,11 +55,11 @@ const genOfficeForm = (config)=> {
 }
 
 const genOfficeList = (config)=> {
-  let offices = `
+  let officelist = `
     <ul></ul>
   `;
 
-  let $offices = $(offices);
+  let $officelist = $(officelist);
 
   config.offices.forEach(office=> {
     let $office = genOffice({
@@ -67,9 +68,9 @@ const genOfficeList = (config)=> {
       updateUsers: config.updateUsers,
       deleteOption: config.deleteOption
     })
-    $offices.append($office);
+    $officelist.append($office);
   })
 
-  $(config.parent).append($offices);
-  return $offices;
+  $(config.parent).append($officelist);
+  return $officelist;
 }

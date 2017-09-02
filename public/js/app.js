@@ -51,7 +51,6 @@ $(function() {
 
   const deleteOption = (officeId)=> {
     $userlist.children().find(`[data-office-id=${officeId}]`).remove();
-    // hmm offices isn't changing
   }
 
   let $userlist = genUserList({
