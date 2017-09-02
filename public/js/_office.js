@@ -4,8 +4,8 @@ const genOffice = (config)=> {
   let office = `
     <li data-id=${config.office.id}>
       <p>${config.office.name}</p>
-      <p>${config.office.lat}</p>
-      <p>${config.office.lng}</p>
+      <p>Lat: ${config.office.lat}</p>
+      <p>Lang: ${config.office.lng}</p>
       <h4 class="user-count">Users: ${config.office.users.length}</h4>
       <button class="btn">Delete</button>
     </li>

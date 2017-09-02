@@ -3,7 +3,6 @@ const nunjucks = require('nunjucks');
 const path = require('path');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const env = require('./env.json');
 const db = require('./db');
 const users = require('./routes/users');
 const offices = require('./routes/offices');
@@ -20,7 +19,7 @@ app.use('/jquery', express.static(path.resolve(`${__dirname}/node_modules/jquery
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', (req, res, next)=> {
-  res.render('index', { GOOGLE_API_KEY: env.GOOGLE_API_KEY });
+  res.render('index', { GOOGLE_API_KEY: process.env.GOOGLE_API_KEY });
 })
 
 app.use('/users', users);

@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "DATABASE_URL=postgres://localhost/acmeusersoffices nodemon app.js --ignore public/",
+    "start:dev": "DATABASE_URL=postgres://localhost/acmeusersoffices GOOGLE_API_KEY=AIzaSyCQjeeZDjwVk0RgWwTp3FYBlmkaUfoDXuw nodemon app.js --ignore public/",
     "build:css": "node-sass -w assets/stylesheets -o public/stylesheets/",
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
