@@ -1,5 +1,5 @@
 const genOffice = (config)=> {
-  let template = `
+  let office = `
     <li>
       ${config.office.name}
       ${config.office.lat}
@@ -11,11 +11,47 @@ const genOffice = (config)=> {
     </li>
   `;
 
-  let $html = $(template);
+  let $office = $(office);
 
-  $html.on('click', 'button', function(e) {
-    $html.remove();
+  return $office;
+}
+
+const genOfficeForm = (config)=> {
+  let officeform = `
+    <div>
+      New office: <input type="text"/>
+      <button>Add</button>
+    </div>
+  `;
+
+  let $officeform = $(officeform);
+
+  $officeform.on('click', 'button', function() {
+    // TODO: do ajax stuff
+    let office = { name: $officeform.find('input').val(), users: [] } // fake
+    let $office = genOffice({
+      office
+    })
+    config.officelist.append($office);
   })
 
-  $(config.parent).append($html);
+  $(config.parent).append($officeform);
+}
+
+const genOfficeList = (config)=> {
+  let offices = `
+    <ul></ul>
+  `;
+
+  let $offices = $(offices);
+
+  config.offices.forEach(office=> {
+    let $office = genOffice({
+      office
+    })
+    $offices.append($office);
+  })
+
+  $(config.parent).append($offices);
+  return $offices;
 }
