@@ -1,15 +1,14 @@
+let uCount = 0; // TODO: fake, remove
+
 const genUser = (config)=> {
   let user = `
     <li>
       ${config.user.name}
       <select>
-        <option>---</option>
+        <option data-office-id=${null}>---</option>
         ${ config.offices.reduce((aggr, office)=> {
-            if (config.user.officeId && office.id == config.user.officeId) return aggr += `
-              <option selected="selected">${office.name}</option>
-            `;
             return aggr += `
-              <option>${office.name}</option>
+              <option data-office-id="${office.id}" ${office.id == config.user.officeId ? selected="selected" : ""}>${office.name}</option>
             `;
           }, '')}
       </select>
@@ -18,10 +17,20 @@ const genUser = (config)=> {
     </li>
   `;
 
-  let $user = $(user);
-  $user.find('select').on('change', function() {
+  let $user = $(user),
+    $select = $user.find('select');
+
+  $select.on('change', function(e) {
     // TODO: do ajax stuff
-    console.log('did stuff');
+    let current = config.offices.find(office=> office.id == config.user.officeId)
+    if (current) current.users = current.users.filter(user=> user.id != config.user.id);
+
+    let newOffice = config.offices.find(office=> office.id == $select.find(':selected').data().officeId);
+    if (newOffice) newOffice.users.push(config.user);
+
+    config.user.officeId = newOffice ? newOffice.id : null;
+
+    console.log(config.offices);
   })
 
   return $user;
@@ -45,7 +54,7 @@ const genUserForm = (config)=> {
 
   $form.on('click', 'button', function() {
     // TODO: do ajax stuff, then get user
-    let user = { name: $input.val() }; //fake
+    let user = { name: $input.val(), id: uCount++, officeId: null }; //fake
     $newUser = genUser({
       user,
       offices: config.offices
@@ -70,10 +79,13 @@ const genUserList = (config)=> {
       user: user,
       offices: config.offices
     })
-
     $userlist.append($user);
   })
 
   $(config.parent).append($userlist);
   return $userlist;
+}
+
+const updateOffceEl = (officeId)=> {
+
 }

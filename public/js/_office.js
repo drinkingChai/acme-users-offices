@@ -1,3 +1,5 @@
+let count = 10; //fake
+
 const genOffice = (config)=> {
   let office = `
     <li>
@@ -28,10 +30,11 @@ const genOfficeForm = (config)=> {
 
   $officeform.on('click', 'button', function() {
     // TODO: do ajax stuff
-    let office = { name: $officeform.find('input').val(), users: [] } // fake
+    let office = { name: $officeform.find('input').val(), id: count++, users: [] } // fake
     let $office = genOffice({
       office
     })
+    config.offices.push(office);
     config.officelist.append($office);
   })
 

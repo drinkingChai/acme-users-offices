@@ -51,6 +51,7 @@ $(function() {
   }),
   $officeform = genOfficeForm({
     parent: '#office-form',
-    officelist: $officelist
+    officelist: $officelist,
+    offices
   })
 })
