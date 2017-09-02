@@ -10,7 +10,7 @@ $(function() {
     .then(offices=> {
       const updateOffice = (officeId, userCount)=> {
         let $office = $officelist.find(`[data-id=${officeId}]`);
-        $office.find('.user-count').html(userCount);
+        $office.find('.user-count').html(`<h4 class="user-count">Users: ${userCount}</h4>`);
       }
 
       const updateUsers = (office)=> {
