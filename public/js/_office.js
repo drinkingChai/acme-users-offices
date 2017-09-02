@@ -39,7 +39,8 @@ const genOfficeForm = (config)=> {
     </div>
   `;
 
-  let $officeform = $(officeform);
+  let $officeform = $(officeform),
+    $input = $officeform.find('input');
 
   // gmaps
   let autocomplete = new google.maps.places.Autocomplete(($officeform.find('input')[0]));
@@ -61,6 +62,7 @@ const genOfficeForm = (config)=> {
         config.offices.push(office);
         config.officelist.append($office);
         config.updateUsers(office);
+        $officeform.find('input').val("");
       })
   });
   //
