@@ -9,10 +9,19 @@
     <h1>Acme User Offices!</h1>
 
     <!-- hmm how do we use partials? -->
-    <div id="users" style="float: left; padding-right: 20px;"></div>
-    <div id="offices" style="float: left;"></div>
+    <div id="users" style="float: left; padding-right: 20px;">
+      <div id="user-form"></div>
+      <div id="user-list"></div>
+    </div>
+
+    <div id="offices" style="float: left;">
+      <div id="office-form"></div>
+      <div id="office-list"></div>
+    </div>
 
     <script src="jquery/jquery.min.js" charset="utf-8"></script>
+    <script src="js/_office.js" charset="utf-8"></script>
+    <script src="js/_user.js" charset="utf-8"></script>
     <script src="js/app.js" charset="utf-8"></script>
   </body>
 </html>
