@@ -34,24 +34,52 @@ $(function() {
     }
   ]
 
+  const updateOffice = (officeId, userCount)=> {
+    let $office = $officelist.find(`[data-id=${officeId}]`);
+    $office.find('.user-count').html(userCount);
+  }
+
+  const updateUsers = (office)=> {
+    let option = `
+      <option data-office-id="${office.id}">${office.name}</option>
+    `;
+
+    $userlist.children().each(function() {
+      $(this).find('select').append($(option))
+    })
+  }
+
+  const deleteOption = (officeId)=> {
+    $userlist.children().find(`[data-office-id=${officeId}]`).remove();
+    // hmm offices isn't changing
+  }
+
   let $userlist = genUserList({
     parent: '#user-list',
     users,
-    offices
+    offices,
+    updateOffice
   }),
   $userform = genUserForm({
     parent: '#user-form',
     userlist: $userlist,
     users,
-    offices
+    offices,
+    updateOffice
   }),
   $officelist = genOfficeList({
     parent: '#office-list',
-    offices
+    offices,
+    updateUsers,
+    deleteOption
   }),
   $officeform = genOfficeForm({
     parent: '#office-form',
     officelist: $officelist,
-    offices
+    offices,
+    updateUsers,
+    deleteOption
   })
+
+
 })

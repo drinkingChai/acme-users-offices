@@ -2,18 +2,25 @@ let count = 10; //fake
 
 const genOffice = (config)=> {
   let office = `
-    <li>
+    <li data-id=${config.office.id}>
       ${config.office.name}
       ${config.office.lat}
       ${config.office.lang}
       <br/>
-      Users: ${config.office.users.length}
+      Users: <span class="user-count">${config.office.users.length}</span>
       <br/>
       <button>Delete</button>
     </li>
   `;
 
   let $office = $(office);
+
+  $office.on('click', 'button', function() {
+    // TODO: ajax stuff
+    config.offices = config.offices.filter(office=> office.id !== config.office.id);
+    config.deleteOption(config.office.id);
+    $office.remove();
+  })
 
   return $office;
 }
@@ -32,10 +39,15 @@ const genOfficeForm = (config)=> {
     // TODO: do ajax stuff
     let office = { name: $officeform.find('input').val(), id: count++, users: [] } // fake
     let $office = genOffice({
-      office
+      office,
+      offices: config.offices,
+      updateUsers: config.updateUsers,
+      deleteOption: config.deleteOption
     })
     config.offices.push(office);
     config.officelist.append($office);
+
+    config.updateUsers(office);
   })
 
   $(config.parent).append($officeform);
@@ -50,7 +62,10 @@ const genOfficeList = (config)=> {
 
   config.offices.forEach(office=> {
     let $office = genOffice({
-      office
+      office,
+      offices: config.offices,
+      updateUsers: config.updateUsers,
+      deleteOption: config.deleteOption
     })
     $offices.append($office);
   })

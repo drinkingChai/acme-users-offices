@@ -2,7 +2,7 @@ let uCount = 0; // TODO: fake, remove
 
 const genUser = (config)=> {
   let user = `
-    <li>
+    <li data-id=${config.id}>
       ${config.user.name}
       <select>
         <option data-office-id=${null}>---</option>
@@ -23,14 +23,28 @@ const genUser = (config)=> {
   $select.on('change', function(e) {
     // TODO: do ajax stuff
     let current = config.offices.find(office=> office.id == config.user.officeId)
-    if (current) current.users = current.users.filter(user=> user.id != config.user.id);
+    if (current) {
+      current.users = current.users.filter(user=> user.id != config.user.id)
+      config.updateOffice(current.id, current.users.length);
+    };
 
     let newOffice = config.offices.find(office=> office.id == $select.find(':selected').data().officeId);
-    if (newOffice) newOffice.users.push(config.user);
+    if (newOffice) {
+      newOffice.users.push(config.user)
+      config.updateOffice(newOffice.id, newOffice.users.length);
+    };
 
     config.user.officeId = newOffice ? newOffice.id : null;
+  })
 
-    console.log(config.offices);
+  $user.on('click', 'button', function() {
+    // TODO: ajax stuff
+    let current = config.offices.find(office=> office.id == config.user.officeId)
+    if (current) {
+      current.users = current.users.filter(user=> user.id != config.user.id)
+      config.updateOffice(current.id, current.users.length);
+    };
+    $user.remove();
   })
 
   return $user;
@@ -57,9 +71,9 @@ const genUserForm = (config)=> {
     let user = { name: $input.val(), id: uCount++, officeId: null }; //fake
     $newUser = genUser({
       user,
-      offices: config.offices
+      offices: config.offices,
+      updateOffice: config.updateOffice
     })
-
     config.users.push(user)
     $(config.userlist).append($newUser);
   })
@@ -73,19 +87,15 @@ const genUserList = (config)=> {
   `;
 
   let $userlist = $(userlist);
-
   config.users.forEach(user=> {
     let $user = genUser({
       user: user,
-      offices: config.offices
+      offices: config.offices,
+      updateOffice: config.updateOffice
     })
     $userlist.append($user);
   })
 
   $(config.parent).append($userlist);
   return $userlist;
-}
-
-const updateOffceEl = (officeId)=> {
-
 }
