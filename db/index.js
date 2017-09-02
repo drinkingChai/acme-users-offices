@@ -42,13 +42,13 @@ User.findIncludeOffice = ()=> {
   return User.findAll({
     include: [ Office ]
   })
-  .then(_users=> {
-    users = _users;
-    return Office.findAll()
-  })
-  .then(offices=> {
-    return { users, offices }
-  })
+  // .then(_users=> {
+  //   users = _users;
+  //   return Office.findAll()
+  // })
+  // .then(offices=> {
+  //   return { users, offices }
+  // })
 }
 
 const sync = ()=> {

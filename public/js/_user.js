@@ -20,31 +20,44 @@ const genUser = (config)=> {
   let $user = $(user),
     $select = $user.find('select');
 
-  $select.on('change', function(e) {
+  $select.on('change', function() {
     // TODO: do ajax stuff
-    let current = config.offices.find(office=> office.id == config.user.officeId)
-    if (current) {
-      current.users = current.users.filter(user=> user.id != config.user.id)
-      config.updateOffice(current.id, current.users.length);
-    };
+    let newOfficeId = $select.find(':selected').data().officeId;
+    $.ajax({
+      url: `/users/${config.user.id}`,
+      data: { officeId: newOfficeId ? newOfficeId : 0 },
+      method: 'PUT',
+      success: function() {
+        let current = config.offices.find(office=> office.id == config.user.officeId)
+        if (current) {
+          current.users = current.users.filter(user=> user.id != config.user.id)
+          config.updateOffice(current.id, current.users.length);
+        };
 
-    let newOffice = config.offices.find(office=> office.id == $select.find(':selected').data().officeId);
-    if (newOffice) {
-      newOffice.users.push(config.user)
-      config.updateOffice(newOffice.id, newOffice.users.length);
-    };
+        let newOffice = config.offices.find(office=> office.id == newOfficeId);
+        if (newOffice) {
+          newOffice.users.push(config.user)
+          config.updateOffice(newOffice.id, newOffice.users.length);
+        };
 
-    config.user.officeId = newOffice ? newOffice.id : null;
+        config.user.officeId = newOffice ? newOffice.id : null;
+      }
+    })
   })
 
   $user.on('click', 'button', function() {
-    // TODO: ajax stuff
-    let current = config.offices.find(office=> office.id == config.user.officeId)
-    if (current) {
-      current.users = current.users.filter(user=> user.id != config.user.id)
-      config.updateOffice(current.id, current.users.length);
-    };
-    $user.remove();
+    $.ajax({
+      url: `/users/${config.user.id}`,
+      method: 'DELETE',
+      success: function() {
+        let current = config.offices.find(office=> office.id == config.user.officeId)
+        if (current) {
+          current.users = current.users.filter(user=> user.id != config.user.id)
+          config.updateOffice(current.id, current.users.length);
+        };
+        $user.remove();
+      }
+    })
   })
 
   return $user;
@@ -67,15 +80,16 @@ const genUserForm = (config)=> {
     $input = $form.find('input');
 
   $form.on('click', 'button', function() {
-    // TODO: do ajax stuff, then get user
-    let user = { name: $input.val(), id: uCount++, officeId: null }; //fake
-    $newUser = genUser({
-      user,
-      offices: config.offices,
-      updateOffice: config.updateOffice
-    })
-    config.users.push(user)
-    $(config.userlist).append($newUser);
+    $.post('/users', { name: $input.val() })
+      .then(user=> {
+        $newUser = genUser({
+          user,
+          offices: config.offices,
+          updateOffice: config.updateOffice
+        })
+        config.users.push(user)
+        $(config.userlist).append($newUser);
+      })
   })
 
   $(config.parent).append($form);

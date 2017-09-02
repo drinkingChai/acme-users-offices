@@ -16,12 +16,17 @@ const genOffice = (config)=> {
   let $office = $(office);
 
   $office.on('click', 'button', function() {
-    // TODO: ajax stuff
-    let index = config.offices.indexOf(config.office)
-    // config.offices = config.offices.filter(office=> office.id !== config.office.id);
-    config.offices.splice(index, 1);
-    config.deleteOption(config.office.id);
-    $office.remove();
+    $.ajax({
+      url: `offices/${config.office.id}`,
+      method: 'DELETE',
+      success: function() {
+        let index = config.offices.indexOf(config.office)
+        // config.offices = config.offices.filter(office=> office.id !== config.office.id);
+        config.offices.splice(index, 1);
+        config.deleteOption(config.office.id);
+        $office.remove();
+      }
+    })
   })
 
   return $office;
@@ -38,17 +43,19 @@ const genOfficeForm = (config)=> {
   let $officeform = $(officeform);
 
   $officeform.on('click', 'button', function() {
-    // TODO: do ajax stuff
-    let office = { name: $officeform.find('input').val(), id: count++, users: [] } // fake
-    let $office = genOffice({
-      office,
-      offices: config.offices,
-      updateUsers: config.updateUsers,
-      deleteOption: config.deleteOption
-    })
-    config.offices.push(office);
-    config.officelist.append($office);
-    config.updateUsers(office);
+    $.post('/offices', { name: $officeform.find('input').val() })
+      .then(office=> {
+        office.users = [];  // lying to user?
+        let $office = genOffice({
+          office,
+          offices: config.offices,
+          updateUsers: config.updateUsers,
+          deleteOption: config.deleteOption
+        })
+        config.offices.push(office);
+        config.officelist.append($office);
+        config.updateUsers(office);
+      })
   })
 
   $(config.parent).append($officeform);

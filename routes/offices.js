@@ -12,13 +12,13 @@ router.get('/', (req, res, next)=> {
 router.post('/', (req, res, next)=> {
   Office.create(req.body)
     .then(office=> {
-      res.sendStatus(200);
+      res.send(office);
     })
     .catch(next);
 })
 
 router.delete('/:id', (req, res, next)=> {
-  Office.delete({ where: { id: req.params.id }})
+  Office.destroy({ where: { id: req.params.id }})
     .then(office=> {
       res.sendStatus(200);
     })

@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const User = require('../db').models.User;
+const Office = require('../db').models.Office;
 
 router.get('/', (req, res, next)=> {
   User.findIncludeOffice()
@@ -18,7 +19,7 @@ router.post('/', (req, res, next)=> {
 })
 
 router.delete('/:id', (req, res, next)=> {
-  User.delete({ where: { id: req.params.id }})
+  User.destroy({ where: { id: req.params.id }})
     .then(users=> {
       res.sendStatus(200);
     })
@@ -26,9 +27,16 @@ router.delete('/:id', (req, res, next)=> {
 })
 
 router.put('/:id', (req, res, next)=> {
-  User.update(req.body, { where: { id: req.params.id }})
-    .then(users=> {
-      res.sendStatus(200);
+  let user;
+  User.findOne({ where: { id: req.params.id }})
+    .then(_user=> {
+      user = _user;
+      return Office.findOne({ where: { id: req.body.officeId }})
+    })
+    .then(office=> {
+      return user.setOffice(office);
+    }).then(user=> {
+      res.send(user);
     })
     .catch(next);
 })
