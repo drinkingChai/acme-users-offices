@@ -179,13 +179,13 @@ $view-height: create-vh();
   float: left;
   $width: ($i / $cols);
   width: percentage($width);
-  padding: 0 $gutter;
+  padding: 0 0 0 $gutter;
 }
 @mixin make-col-offset($i) {
   float: left;
   $width: ($i / $cols);
   margin-left: percentage($width);
-  padding: 0 $gutter;
+  padding: 0 0 0 $gutter;
 }
 @for $i from 1 through $cols {
   .col-#{$i} {
@@ -218,7 +218,6 @@ $view-height: create-vh();
       @include make-col($i);
       margin-bottom: 1.3em;
       padding-left: 0;
-      padding-right: 0;
     };
   }
   .col-xs-offset-#{$i} {

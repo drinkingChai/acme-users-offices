@@ -24,6 +24,5 @@ const OfficeForm = (config)=> {
       })
   });
 
-  $(config.id).empty();
   $(config.id).append($form);
 }

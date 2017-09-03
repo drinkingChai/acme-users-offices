@@ -151,636 +151,624 @@ hr {
   .col-1 {
     float: left;
     width: 8.33333%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 1200px) {
   .col-offset-1 {
     float: left;
     margin-left: 8.33333%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-1 {
     float: left;
     width: 8.33333%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-offset-1 {
     float: left;
     margin-left: 8.33333%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-1 {
     float: left;
     width: 8.33333%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-offset-1 {
     float: left;
     margin-left: 8.33333%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-1 {
     float: left;
     width: 8.33333%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0;
-    padding-right: 0; } }
+    padding-left: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-1 {
     float: left;
     margin-left: 8.33333%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     padding-left: 0; } }
 
 @media (min-width: 1200px) {
   .col-2 {
     float: left;
     width: 16.66667%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 1200px) {
   .col-offset-2 {
     float: left;
     margin-left: 16.66667%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-2 {
     float: left;
     width: 16.66667%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-offset-2 {
     float: left;
     margin-left: 16.66667%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-2 {
     float: left;
     width: 16.66667%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-offset-2 {
     float: left;
     margin-left: 16.66667%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-2 {
     float: left;
     width: 16.66667%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0;
-    padding-right: 0; } }
+    padding-left: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-2 {
     float: left;
     margin-left: 16.66667%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     padding-left: 0; } }
 
 @media (min-width: 1200px) {
   .col-3 {
     float: left;
     width: 25%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 1200px) {
   .col-offset-3 {
     float: left;
     margin-left: 25%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-3 {
     float: left;
     width: 25%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-offset-3 {
     float: left;
     margin-left: 25%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-3 {
     float: left;
     width: 25%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-offset-3 {
     float: left;
     margin-left: 25%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-3 {
     float: left;
     width: 25%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0;
-    padding-right: 0; } }
+    padding-left: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-3 {
     float: left;
     margin-left: 25%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     padding-left: 0; } }
 
 @media (min-width: 1200px) {
   .col-4 {
     float: left;
     width: 33.33333%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 1200px) {
   .col-offset-4 {
     float: left;
     margin-left: 33.33333%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-4 {
     float: left;
     width: 33.33333%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-offset-4 {
     float: left;
     margin-left: 33.33333%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-4 {
     float: left;
     width: 33.33333%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-offset-4 {
     float: left;
     margin-left: 33.33333%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-4 {
     float: left;
     width: 33.33333%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0;
-    padding-right: 0; } }
+    padding-left: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-4 {
     float: left;
     margin-left: 33.33333%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     padding-left: 0; } }
 
 @media (min-width: 1200px) {
   .col-5 {
     float: left;
     width: 41.66667%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 1200px) {
   .col-offset-5 {
     float: left;
     margin-left: 41.66667%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-5 {
     float: left;
     width: 41.66667%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-offset-5 {
     float: left;
     margin-left: 41.66667%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-5 {
     float: left;
     width: 41.66667%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-offset-5 {
     float: left;
     margin-left: 41.66667%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-5 {
     float: left;
     width: 41.66667%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0;
-    padding-right: 0; } }
+    padding-left: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-5 {
     float: left;
     margin-left: 41.66667%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     padding-left: 0; } }
 
 @media (min-width: 1200px) {
   .col-6 {
     float: left;
     width: 50%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 1200px) {
   .col-offset-6 {
     float: left;
     margin-left: 50%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-6 {
     float: left;
     width: 50%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-offset-6 {
     float: left;
     margin-left: 50%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-6 {
     float: left;
     width: 50%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-offset-6 {
     float: left;
     margin-left: 50%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-6 {
     float: left;
     width: 50%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0;
-    padding-right: 0; } }
+    padding-left: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-6 {
     float: left;
     margin-left: 50%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     padding-left: 0; } }
 
 @media (min-width: 1200px) {
   .col-7 {
     float: left;
     width: 58.33333%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 1200px) {
   .col-offset-7 {
     float: left;
     margin-left: 58.33333%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-7 {
     float: left;
     width: 58.33333%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-offset-7 {
     float: left;
     margin-left: 58.33333%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-7 {
     float: left;
     width: 58.33333%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-offset-7 {
     float: left;
     margin-left: 58.33333%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-7 {
     float: left;
     width: 58.33333%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0;
-    padding-right: 0; } }
+    padding-left: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-7 {
     float: left;
     margin-left: 58.33333%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     padding-left: 0; } }
 
 @media (min-width: 1200px) {
   .col-8 {
     float: left;
     width: 66.66667%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 1200px) {
   .col-offset-8 {
     float: left;
     margin-left: 66.66667%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-8 {
     float: left;
     width: 66.66667%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-offset-8 {
     float: left;
     margin-left: 66.66667%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-8 {
     float: left;
     width: 66.66667%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-offset-8 {
     float: left;
     margin-left: 66.66667%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-8 {
     float: left;
     width: 66.66667%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0;
-    padding-right: 0; } }
+    padding-left: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-8 {
     float: left;
     margin-left: 66.66667%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     padding-left: 0; } }
 
 @media (min-width: 1200px) {
   .col-9 {
     float: left;
     width: 75%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 1200px) {
   .col-offset-9 {
     float: left;
     margin-left: 75%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-9 {
     float: left;
     width: 75%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-offset-9 {
     float: left;
     margin-left: 75%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-9 {
     float: left;
     width: 75%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-offset-9 {
     float: left;
     margin-left: 75%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-9 {
     float: left;
     width: 75%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0;
-    padding-right: 0; } }
+    padding-left: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-9 {
     float: left;
     margin-left: 75%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     padding-left: 0; } }
 
 @media (min-width: 1200px) {
   .col-10 {
     float: left;
     width: 83.33333%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 1200px) {
   .col-offset-10 {
     float: left;
     margin-left: 83.33333%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-10 {
     float: left;
     width: 83.33333%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-offset-10 {
     float: left;
     margin-left: 83.33333%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-10 {
     float: left;
     width: 83.33333%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-offset-10 {
     float: left;
     margin-left: 83.33333%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-10 {
     float: left;
     width: 83.33333%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0;
-    padding-right: 0; } }
+    padding-left: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-10 {
     float: left;
     margin-left: 83.33333%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     padding-left: 0; } }
 
 @media (min-width: 1200px) {
   .col-11 {
     float: left;
     width: 91.66667%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 1200px) {
   .col-offset-11 {
     float: left;
     margin-left: 91.66667%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-11 {
     float: left;
     width: 91.66667%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-offset-11 {
     float: left;
     margin-left: 91.66667%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-11 {
     float: left;
     width: 91.66667%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-offset-11 {
     float: left;
     margin-left: 91.66667%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-11 {
     float: left;
     width: 91.66667%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0;
-    padding-right: 0; } }
+    padding-left: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-11 {
     float: left;
     margin-left: 91.66667%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     padding-left: 0; } }
 
 @media (min-width: 1200px) {
   .col-12 {
     float: left;
     width: 100%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 1200px) {
   .col-offset-12 {
     float: left;
     margin-left: 100%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-12 {
     float: left;
     width: 100%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .col-md-offset-12 {
     float: left;
     margin-left: 100%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-12 {
     float: left;
     width: 100%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .col-sm-offset-12 {
     float: left;
     margin-left: 100%;
-    padding: 0 20px; } }
+    padding: 0 0 0 20px; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-12 {
     float: left;
     width: 100%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0;
-    padding-right: 0; } }
+    padding-left: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-12 {
     float: left;
     margin-left: 100%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     padding-left: 0; } }
 
 [class*='col-']:last-of-type {
