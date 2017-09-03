@@ -1,7 +1,7 @@
-const drawOffices = (config)=> {
-  let $offices = $(`
+const OfficeList = (config)=> {
+  let $officelist = $(`
     <ul>
-      ${ config.offices.reduce((lis, office)=> {
+      ${ config.upstreamData.offices.reduce((lis, office)=> {
           return lis += `
             <li data-id="${office.id}">
               <p class="text-bold">${office.name}</p>
@@ -17,23 +17,28 @@ const drawOffices = (config)=> {
     </ul>
   `);
 
-  $offices.on('click', 'button', function() {
+  $officelist.on('click', 'button', function() {
     let id = $(this).parent().data().id;
 
     $.ajax({
       url: `/offices/${id}`,
       method: 'DELETE',
       success: function() {
-        // config.offices = config.offices.filter(office=> office.id != id);
-        let off = config.offices.find(o=> o.id == id);
-        config.offices.splice(config.offices.indexOf(off), 1);
+        let off = config.upstreamData.offices.find(o=> o.id == id);
+        config.upstreamData.offices.splice(config.upstreamData.offices.indexOf(off), 1);
 
-        drawOffices({ users: config.users, offices: config.offices });
-        drawUsers({ users: config.users, offices: config.offices });
+        config.targets.forEach(t=> config.downstreamObjs[t].update(config.upstreamData));
       }
     })
   })
 
-  $('#office-list').empty();
-  $('#office-list').append($offices);
+  $officelist.update = function(upstreamData) {
+    config.upstreamData = upstreamData;
+    $(config.id).empty();
+
+    OfficeList(config);
+  }
+
+  $(config.id).append($officelist);
+  config.downstreamObjs.officelist = $officelist;
 }

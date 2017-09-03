@@ -1,25 +1,21 @@
-const drawUserForm = (config)=> {
-  let $form = $(`
+const UserForm = (config)=> {
+  let $userform = $(`
     <div>
       <h3>Name:</h3> <input type="text"/>
       <button class="btn">Add</button>
     </div>
   `);
 
-  let $input = $form.find('input');
+  let $input = $userform.find('input');
 
-  $form.on('click', 'button', function() {
-    if (!$input.val().trim().length) return;
-
+  $userform.on('click', 'button', function() {
     $.post('/users', { name: $input.val() })
       .then(user=> {
-        config.users.push(user);
         $input.val("");
-
-        drawUsers({ users: config.users, offices: config.offices });
+        config.upstreamData.users.push(user);
+        config.targets.forEach(t=> config.downstreamObjs[t].update(config.upstreamData));
       })
   })
 
-  $(config.id).empty();
-  $(config.id).append($form);
+  $(config.id).append($userform)
 }

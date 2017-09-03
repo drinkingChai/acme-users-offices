@@ -1,4 +1,4 @@
-const drawOfficeForm = (config)=> {
+const OfficeForm = (config)=> {
   let $form = $(`
     <div>
       <h3>New office!</h3> <input type="text"/>
@@ -17,11 +17,10 @@ const drawOfficeForm = (config)=> {
 
     $.post('/offices', { name, lat, lng })
       .then(office=> {
-        config.offices.push({ name, id: office.id, lat, lng, users: [] })
+        config.upstreamData.offices.push({ name, id: office.id, lat, lng, users: [] })
         $input.val("");
 
-        drawOffices({ users: config.users, offices: config.offices });
-        drawUsers({ users: config.users, offices: config.offices });
+        config.targets.forEach(t=> config.downstreamObjs[t].update(config.upstreamData));
       })
   });
 

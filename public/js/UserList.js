@@ -1,15 +1,12 @@
-const drawUsers = (config)=> {
-  // draw all users
-  // on add/remove user, draw all users
-  // on adding/removing options, draw all users
+const UserList = (config)=> {
   let $userlist = $(`
     <ul>
-      ${ config.users.reduce((lis, user)=> {
+      ${ config.upstreamData.users.reduce((lis, user)=> {
           return lis += `
             <li data-id="${user.id}" data-cur-office-id=${user.officeId}>
               <h3 class="text-bold">${ user.name }</h3>
               <select>
-                ${ config.offices.reduce((opts, off)=> {
+                ${ config.upstreamData.offices.reduce((opts, off)=> {
                     return opts += `
                       <option data-office-id="${off.id}" ${off.id === user.officeId ? "selected": ""}>${off.name}</option>
                     `;
@@ -22,6 +19,13 @@ const drawUsers = (config)=> {
     </ul>
   `);
 
+  $userlist.update = function(upstreamData) {
+    config.upstreamData = upstreamData;
+    $(config.id).empty();
+
+    UserList(config);
+  }
+
   $userlist.on('click', 'button', function(e) {
     let id = $(this).parent().data().id;
 
@@ -29,19 +33,18 @@ const drawUsers = (config)=> {
       url: `/users/${id}`,
       method: 'DELETE',
       success: function() {
-        // config.users = config.users.filter(user=> user.id != id);
-        // config.offices.forEach(office=> {
+        // config.upstreamData.users = config.upstreamData.users.filter(user=> user.id != id);
+        // config.upstreamData.offices.forEach(office=> {
         //   office.users = office.users.filter(u=> u.id != id);
         // })
 
-        let usr = config.users.find(u=> u.id == id);
-        config.users.splice(config.users.indexOf(usr), 1);
-        config.offices.forEach(office=> {
+        let usr = config.upstreamData.users.find(u=> u.id == id);
+        config.upstreamData.users.splice(config.upstreamData.users.indexOf(usr), 1);
+        config.upstreamData.offices.forEach(office=> {
           office.users = office.users.filter(u=> u.id != id);
         })
 
-        drawUsers({ users: config.users, offices: config.offices });
-        drawOffices({ users: config.users, offices: config.offices });
+        config.targets.forEach(t=> config.downstreamObjs[t].update(config.upstreamData));
       }
     })
   })
@@ -58,9 +61,9 @@ const drawUsers = (config)=> {
       method: 'PUT',
       data: { officeId: officeId ? officeId : 0 },
       success: function() {
-        let user = config.users.find(u=> u.id == id),
-        prevOffice = config.offices.find(o=> o.id == prevOfficeId),
-        newOffice = config.offices.find(o=> o.id == officeId);
+        let user = config.upstreamData.users.find(u=> u.id == id),
+        prevOffice = config.upstreamData.offices.find(o=> o.id == prevOfficeId),
+        newOffice = config.upstreamData.offices.find(o=> o.id == officeId);
 
         // TODO: remove from prev office
         // TODO: add to newOffice
@@ -70,12 +73,12 @@ const drawUsers = (config)=> {
         user.officeId = newOffice ? newOffice.id : null;
         $user.parent().data().curOfficeId = user.officeId;
 
-        drawOffices({ users: config.users, offices: config.offices });
+        config.targets.forEach(t=> config.downstreamObjs[t].update(config.upstreamData));
       }
     })
 
   })
 
-  $('#user-list').empty();
-  $('#user-list').append($userlist);
+  $(config.id).append($userlist)
+  config.downstreamObjs.userlist = $userlist;
 }
