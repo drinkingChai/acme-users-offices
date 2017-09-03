@@ -1,4 +1,4 @@
-const drawOfficeForm = (config)=> {
+const drawOfficeForm = (users, offices, config, drawAll)=> {
   let $form = $(`
     <div>
       New office! <input type="text"/>
@@ -6,6 +6,10 @@ const drawOfficeForm = (config)=> {
   `);
 
   let $input = $form.find('input:first');
+
+  // caching..
+  let _offices = offices,
+    _users = users;
 
   // gmaps
   let autocomplete = new google.maps.places.Autocomplete($input[0]);
@@ -15,13 +19,18 @@ const drawOfficeForm = (config)=> {
       lat = place.geometry.location.lat(),
       lng = place.geometry.location.lng();
 
-    // offices.push({ name, lat, lng, users: [] })
-    offices.push(genOffice(name, lat, lng))
-    $input.val("");
+    $.post('/offices', { name, lat, lng })
+      .then(office=> {
+        _offices.push({ name, id: office.id, lat, lng, users: [] })
 
-    drawOffices();
-    drawUsers();
+        // $(config.id).empty();
+        // drawOffices(_users, _offices);
+        // drawUsers(_users, _offices);
+        // drawOfficeForm(_users, _offices, config);
+        drawAll(_users, _offices);
+      })
   });
 
+  $(config.id).empty();
   $(config.id).append($form);
 }
