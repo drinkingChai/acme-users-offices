@@ -8,29 +8,33 @@ $(function() {
     })
     .then(offices=> {
 
-      const drawAll = (_users, _offices)=> {
+      // const drawAll = (_users, _offices)=> {
         drawUserForm(
-          _users,
-          _offices,
           {
-            id: '#user-form'
-          },
-          drawAll
+            id: '#user-form',
+            users,
+            offices
+          }
         )
 
         drawOfficeForm(
-          _users,
-          _offices,
           {
-            id: '#office-form'
-          },
-          drawAll
+            id: '#office-form',
+            users,
+            offices
+          }
         )
 
-        drawUsers(_users, _offices, drawAll);
-        drawOffices(_users, _offices, drawAll);
-      }
+        drawUsers({
+          users,
+          offices
+        });
+        drawOffices({
+          users,
+          offices
+        });
+      // }
 
-      drawAll(users, offices);
+      // drawAll(users, offices);
     })
 })

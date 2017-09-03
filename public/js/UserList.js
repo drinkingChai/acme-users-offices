@@ -1,15 +1,15 @@
-const drawUsers = (users, offices, drawAll)=> {
+const drawUsers = (config)=> {
   // draw all users
   // on add/remove user, draw all users
   // on adding/removing options, draw all users
   let $userlist = $(`
     <ul>
-      ${ users.reduce((lis, user)=> {
+      ${ config.users.reduce((lis, user)=> {
           return lis += `
             <li data-id="${user.id}" data-cur-office-id=${user.officeId}>
               ${ user.name }
               <select>
-                ${ offices.reduce((opts, off)=> {
+                ${ config.offices.reduce((opts, off)=> {
                     return opts += `
                       <option data-office-id="${off.id}" ${off.id === user.officeId ? "selected": ""}>${off.name}</option>
                     `;
@@ -23,8 +23,6 @@ const drawUsers = (users, offices, drawAll)=> {
   `);
 
   // caching..
-  let _offices = offices,
-    _users = users;
 
   $userlist.on('click', 'button', function(e) {
     let id = $(this).parent().data().id;
@@ -33,14 +31,22 @@ const drawUsers = (users, offices, drawAll)=> {
       url: `/users/${id}`,
       method: 'DELETE',
       success: function() {
-        _users = _users.filter(user=> user.id != id);
-        _offices.forEach(office=> {
+        // config.users = config.users.filter(user=> user.id != id);
+        // config.offices.forEach(office=> {
+        //   office.users = office.users.filter(u=> u.id != id);
+        // })
+
+        let usr = config.offices.find(u=> u.id == id);
+        config.users.splice(config.users.indexOf(usr), 1);
+        config.offices.forEach(office=> {
           office.users = office.users.filter(u=> u.id != id);
         })
 
         // drawUsers(_users, _offices);
         // drawOffices(_users, _offices);
-        drawAll(_users, _offices);
+        // drawAll(_users, _offices);
+        drawUsers({ users: config.users, offices: config.offices });
+        drawOffices({ users: config.users, offices: config.offices });
       }
     })
   })
@@ -57,9 +63,9 @@ const drawUsers = (users, offices, drawAll)=> {
       method: 'PUT',
       data: { officeId: officeId ? officeId : 0 },
       success: function() {
-        let user = _users.find(u=> u.id == id),
-        prevOffice = _offices.find(o=> o.id == prevOfficeId),
-        newOffice = _offices.find(o=> o.id == officeId);
+        let user = config.users.find(u=> u.id == id),
+        prevOffice = config.offices.find(o=> o.id == prevOfficeId),
+        newOffice = config.offices.find(o=> o.id == officeId);
 
         // TODO: remove from prev office
         // TODO: add to newOffice
@@ -70,7 +76,8 @@ const drawUsers = (users, offices, drawAll)=> {
         $user.parent().data().curOfficeId = user.officeId;
 
         // drawOffices(_users, _offices);
-        drawAll(_users, _offices);
+        // drawAll(_users, _offices);
+        drawOffices({ users: config.users, offices: config.offices });
       }
     })
 
