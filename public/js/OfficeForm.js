@@ -7,8 +7,6 @@ const drawOfficeForm = (config)=> {
 
   let $input = $form.find('input:first');
 
-  // caching..
-
   // gmaps
   let autocomplete = new google.maps.places.Autocomplete($input[0]);
   google.maps.event.addListener(autocomplete, 'place_changed', function() {
@@ -22,11 +20,8 @@ const drawOfficeForm = (config)=> {
         config.offices.push({ name, id: office.id, lat, lng, users: [] })
         $input.val("");
 
-        // $(config.id).empty();
         drawOffices({ users: config.users, offices: config.offices });
         drawUsers({ users: config.users, offices: config.offices });
-        // drawOfficeForm(_users, _offices, config);
-        // drawAll(_users, _offices);
       })
   });
 

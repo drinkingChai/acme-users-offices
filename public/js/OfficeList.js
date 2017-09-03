@@ -15,9 +15,6 @@ const drawOffices = (config)=> {
     </ul>
   `);
 
-  // on delete, update users
-  // caching...
-
   $offices.on('click', 'button', function() {
     let id = $(this).parent().data().id;
 
@@ -29,9 +26,6 @@ const drawOffices = (config)=> {
         let off = config.offices.find(o=> o.id == id);
         config.offices.splice(config.offices.indexOf(off), 1);
 
-        // drawOffices(_users, _offices);
-        // drawUsers(_users, _offices);
-        // drawAll(_users, _offices);
         drawOffices({ users: config.users, offices: config.offices });
         drawUsers({ users: config.users, offices: config.offices });
       }

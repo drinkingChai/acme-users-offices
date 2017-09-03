@@ -22,8 +22,6 @@ const drawUsers = (config)=> {
     </ul>
   `);
 
-  // caching..
-
   $userlist.on('click', 'button', function(e) {
     let id = $(this).parent().data().id;
 
@@ -42,9 +40,6 @@ const drawUsers = (config)=> {
           office.users = office.users.filter(u=> u.id != id);
         })
 
-        // drawUsers(_users, _offices);
-        // drawOffices(_users, _offices);
-        // drawAll(_users, _offices);
         drawUsers({ users: config.users, offices: config.offices });
         drawOffices({ users: config.users, offices: config.offices });
       }
@@ -75,8 +70,6 @@ const drawUsers = (config)=> {
         user.officeId = newOffice ? newOffice.id : null;
         $user.parent().data().curOfficeId = user.officeId;
 
-        // drawOffices(_users, _offices);
-        // drawAll(_users, _offices);
         drawOffices({ users: config.users, offices: config.offices });
       }
     })

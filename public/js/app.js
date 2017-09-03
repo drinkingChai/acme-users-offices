@@ -7,34 +7,25 @@ $(function() {
       return $.get('/offices')
     })
     .then(offices=> {
+      drawUserForm({
+        id: '#user-form',
+        users,
+        offices
+      })
 
-      // const drawAll = (_users, _offices)=> {
-        drawUserForm(
-          {
-            id: '#user-form',
-            users,
-            offices
-          }
-        )
+      drawOfficeForm({
+        id: '#office-form',
+        users,
+        offices
+      })
 
-        drawOfficeForm(
-          {
-            id: '#office-form',
-            users,
-            offices
-          }
-        )
-
-        drawUsers({
-          users,
-          offices
-        });
-        drawOffices({
-          users,
-          offices
-        });
-      // }
-
-      // drawAll(users, offices);
+      drawUsers({
+        users,
+        offices
+      });
+      drawOffices({
+        users,
+        offices
+      });
     })
 })
