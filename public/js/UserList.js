@@ -80,5 +80,5 @@ const UserList = (config)=> {
   })
 
   $(config.id).append($userlist)
-  config.downstreamObjs.userlist = $userlist;
+  config.downstreamObjs[config.dsObj] = $userlist;
 }

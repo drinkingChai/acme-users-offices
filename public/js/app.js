@@ -62,6 +62,7 @@ $(function() {
         id: '#user-list',
         upstreamData,
         downstreamObjs,
+        dsObj: 'userlist',
         targets: [ 'officelist', 'userlist' ]
       })
 
@@ -69,6 +70,7 @@ $(function() {
         id: '#office-list',
         upstreamData,
         downstreamObjs,
+        dsObj: 'officelist',
         targets: [ 'officelist', 'userlist' ]
       })
 

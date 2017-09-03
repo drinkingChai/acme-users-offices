@@ -40,5 +40,5 @@ const OfficeList = (config)=> {
   }
 
   $(config.id).append($officelist);
-  config.downstreamObjs.officelist = $officelist;
+  config.downstreamObjs[config.dsObj] = $officelist;
 }
