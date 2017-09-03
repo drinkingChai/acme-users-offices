@@ -190,7 +190,8 @@ hr {
     width: 8.33333%;
     padding: 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0; } }
+    padding-left: 0;
+    padding-right: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-1 {
@@ -242,7 +243,8 @@ hr {
     width: 16.66667%;
     padding: 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0; } }
+    padding-left: 0;
+    padding-right: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-2 {
@@ -294,7 +296,8 @@ hr {
     width: 25%;
     padding: 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0; } }
+    padding-left: 0;
+    padding-right: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-3 {
@@ -346,7 +349,8 @@ hr {
     width: 33.33333%;
     padding: 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0; } }
+    padding-left: 0;
+    padding-right: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-4 {
@@ -398,7 +402,8 @@ hr {
     width: 41.66667%;
     padding: 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0; } }
+    padding-left: 0;
+    padding-right: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-5 {
@@ -450,7 +455,8 @@ hr {
     width: 50%;
     padding: 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0; } }
+    padding-left: 0;
+    padding-right: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-6 {
@@ -502,7 +508,8 @@ hr {
     width: 58.33333%;
     padding: 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0; } }
+    padding-left: 0;
+    padding-right: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-7 {
@@ -554,7 +561,8 @@ hr {
     width: 66.66667%;
     padding: 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0; } }
+    padding-left: 0;
+    padding-right: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-8 {
@@ -606,7 +614,8 @@ hr {
     width: 75%;
     padding: 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0; } }
+    padding-left: 0;
+    padding-right: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-9 {
@@ -658,7 +667,8 @@ hr {
     width: 83.33333%;
     padding: 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0; } }
+    padding-left: 0;
+    padding-right: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-10 {
@@ -710,7 +720,8 @@ hr {
     width: 91.66667%;
     padding: 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0; } }
+    padding-left: 0;
+    padding-right: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-11 {
@@ -762,7 +773,8 @@ hr {
     width: 100%;
     padding: 0 20px;
     margin-bottom: 1.3em;
-    padding-left: 0; } }
+    padding-left: 0;
+    padding-right: 0; } }
 
 @media (min-width: 0px) and (max-width: 768px) {
   .col-xs-offset-12 {
@@ -776,6 +788,12 @@ hr {
 
 .text-center {
   text-align: center; }
+
+.text-bold {
+  font-weight: bold; }
+
+.text-italic {
+  font-style: italic; }
 
 /*
   font-family: 'Zilla Slab Highlight', cursive;
@@ -800,7 +818,8 @@ h2 {
   font-size: 2em; }
 
 h3 {
-  font-size: 1.5em; }
+  font-size: 1.5em;
+  margin-bottom: 0.3em; }
 
 h4 {
   font-size: 1.1em; }
@@ -820,12 +839,16 @@ header {
 input {
   width: 100%; }
 
-#users .inner, #offices .inner {
+#_users .inner, #offices .inner {
   background-color: #f7f7f7; }
 
 #user-form, #office-form {
   padding: 10px; }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   main {
     margin-right: 20px; } }
+
+@media (max-width: 768px) {
+  main {
+    margin-right: 0; } }

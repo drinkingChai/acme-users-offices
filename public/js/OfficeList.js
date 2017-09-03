@@ -4,10 +4,12 @@ const drawOffices = (config)=> {
       ${ config.offices.reduce((lis, office)=> {
           return lis += `
             <li data-id="${office.id}">
-              <p>${office.name}</p>
-              <p>${office.lat}</p>
-              <p>${office.lng}</p>
-              <p>Users: ${office.users.length}</p>
+              <p class="text-bold">${office.name}</p>
+              <div class="text-italic">
+                <p>Lat: ${office.lat}</p>
+                <p>Lng: ${office.lng}</p>
+              </div>
+              <p class="text-bold">Users: ${office.users.length}</p>
               <button class="btn">Delete</button>
             </li>
           `;

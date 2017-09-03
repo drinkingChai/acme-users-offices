@@ -1,7 +1,7 @@
 const drawUserForm = (config)=> {
   let $form = $(`
     <div>
-      Name: <input type="text"/>
+      <h3>Name:</h3> <input type="text"/>
       <button class="btn">Add</button>
     </div>
   `);

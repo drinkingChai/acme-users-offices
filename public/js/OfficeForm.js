@@ -1,7 +1,7 @@
 const drawOfficeForm = (config)=> {
   let $form = $(`
     <div>
-      New office! <input type="text"/>
+      <h3>New office!</h3> <input type="text"/>
     </div>
   `);
 

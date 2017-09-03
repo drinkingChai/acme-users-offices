@@ -7,7 +7,7 @@ const drawUsers = (config)=> {
       ${ config.users.reduce((lis, user)=> {
           return lis += `
             <li data-id="${user.id}" data-cur-office-id=${user.officeId}>
-              ${ user.name }
+              <h3 class="text-bold">${ user.name }</h3>
               <select>
                 ${ config.offices.reduce((opts, off)=> {
                     return opts += `
