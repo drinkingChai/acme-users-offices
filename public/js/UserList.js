@@ -36,7 +36,7 @@ const drawUsers = (config)=> {
         //   office.users = office.users.filter(u=> u.id != id);
         // })
 
-        let usr = config.offices.find(u=> u.id == id);
+        let usr = config.users.find(u=> u.id == id);
         config.users.splice(config.users.indexOf(usr), 1);
         config.offices.forEach(office=> {
           office.users = office.users.filter(u=> u.id != id);

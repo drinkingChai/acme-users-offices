@@ -20,6 +20,7 @@ const drawOfficeForm = (config)=> {
     $.post('/offices', { name, lat, lng })
       .then(office=> {
         config.offices.push({ name, id: office.id, lat, lng, users: [] })
+        $input.val("");
 
         // $(config.id).empty();
         drawOffices({ users: config.users, offices: config.offices });
