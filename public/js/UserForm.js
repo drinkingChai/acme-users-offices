@@ -9,8 +9,10 @@ const UserForm = (config)=> {
   let $input = $userform.find('input');
 
   $userform.on('click', 'button', function() {
+    if (!$input.val().trim().length) return;
     $.post('/users', { name: $input.val() })
       .then(user=> {
+        if (!user) return;
         $input.val("");
         config.upstreamData.users.push(user);
         config.targets.forEach(t=> config.downstreamObjs[t].update(config.upstreamData));
